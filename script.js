@@ -1,30 +1,44 @@
-let input = document.querySelector("#input");
-let duration = document.querySelector("#duration");
-let form = document.querySelector("#form");
-let btn = document.querySelector("#btn");
-let output = document.querySelector("#output");
+const punchIn = document.querySelector("#punch-in");
+const punchOut = document.querySelector("#punch-out");
+const output = document.querySelector("#output");
+const timezoneOffset = 2 * 60 * 60 * 1000;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let obj = {
-    task: input.value,
-    done: false,
-  };
-  let list = localStorage.getItem("list") ? localStorage.getItem("list") : "[]";
-  list = JSON.parse(list);
-  if (!list.some((x) => x.task === obj.task)) {
-    list.push(obj);
-    //it has to happen
-    let li = document.createElement("li");
-    for (let item of list) {
-      li = document.createTextNode(item.task);
-      output.appendChild(li);
-    }
-    //here
-    list = JSON.stringify(list);
-    localStorage.setItem("list", list);
-    console.log("new task added");
-  } else {
-    console.log("already exists, fuck off");
-  }
+punchIn.addEventListener("click", () => {
+  let date = new Date();
+  date.setTime(date.getTime() + timezoneOffset);
+  let dateString = date.toISOString();
+  localStorage.setItem("in", dateString);
+  console.log(localStorage.getItem("in"));
 });
+
+punchOut.addEventListener("click", () => {
+  let date = new Date();
+  date.setTime(date.getTime() + timezoneOffset);
+  let dateString = date.toISOString();
+  localStorage.setItem("out", dateString);
+  console.log(localStorage.getItem("out"));
+  console.log(endShift());
+});
+
+function endShift() {
+  const date1String = localStorage.getItem("in");
+  const date2String = localStorage.getItem("out");
+
+  let timeIn = new Date(date1String);
+  let timeOut = new Date(date2String);
+
+  const timeDifference = timeOut.getTime() - timeIn.getTime();
+
+  let secondsDifference = Math.floor(Math.abs(timeDifference / 1000));
+  let minutesDifference = Math.floor(Math.abs(timeDifference / (1000 * 60)));
+  let hoursDifference = Math.floor(Math.abs(timeDifference / (1000 * 60 * 60)));
+
+  secondsDifference %= 60;
+  minutesDifference %= 60;
+
+  const hoursOutput = hoursDifference.toString().padStart(2, "0");
+  const minutesOutput = minutesDifference.toString().padStart(2, "0");
+  const secondsOutput = secondsDifference.toString().padStart(2, "0");
+
+  return `${hoursOutput}:${minutesOutput}:${secondsOutput}`;
+}
