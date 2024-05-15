@@ -3,12 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Shift Tracker App</title>
   </head>
   <body>
     <button id="punch-in">punch in</button>
     <button id="punch-out">punch out</button>
+    <button id="reset">clear current shift</button>
     <span id="output"></span>
+    <table id="table">
+      <thead id="thead"></thead>
+      <tbody id="tbody">
+        <tr>
+          <td>date</td>
+          <td>start</td>
+          <td>end</td>
+          <td>total</td>
+        </tr>
+      </tbody>
+    </table>
     <script src="script.js"></script>
   </body>
 </html>
