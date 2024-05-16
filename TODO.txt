@@ -1,0 +1,21 @@
+JavaScript
+- Comment code
+- Sort stringify/parse and add database
+- On time start fill out table for time start
+- On time end fill out table for time end
+- Custom fill table
+- Retroactively fill shifts
+- onShift = true/false currently working, set in iife, localStorage string. figure out better way
+- Track other things i.e. reading / language learning / exercising
+- Do i need to check for new users?
+
+`${hoursOutput}:${minutesOutput}:${secondsOutput}`;
+
+
+HTML
+- (HTML/CSS) work out a layout and add structure
+- Sort out IDs, add classes if needed
+
+CSS
+- (HTML/CSS) work out a layout and add style
+- Structure CSS file properly and comment sections // Layout, Typography, Colours etc.

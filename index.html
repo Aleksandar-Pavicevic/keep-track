@@ -7,21 +7,29 @@
     <title>Shift Tracker App</title>
   </head>
   <body>
-    <button id="punch-in">punch in</button>
-    <button id="punch-out">punch out</button>
-    <button id="reset">clear current shift</button>
-    <span id="output"></span>
-    <table id="table">
-      <thead id="thead"></thead>
-      <tbody id="tbody">
-        <tr>
-          <td>date</td>
-          <td>start</td>
-          <td>end</td>
-          <td>total</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="wrapper">
+      <div id="content">
+        <div id="buttons-container">
+          <button id="punch-in">punch in</button>
+          <button id="punch-out">punch out</button>
+          <button id="reset">clear current shift</button>
+        </div>
+        <div id="output-container">
+          <span id="output"></span>
+          <table id="table">
+            <thead id="thead"></thead>
+            <tbody id="tbody">
+              <tr>
+                <td>date</td>
+                <td>start</td>
+                <td>end</td>
+                <td>duration</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -15,18 +15,7 @@ const timezoneOffset = 2 * 60 * 60 * 1000;
   tableFill();
 })();
 
-//TODO
-//sort stringify/parse and add database
-//on time start fill out table for time start
-//on time end fill out table for time end
-//custom fill table
-//retroactively fill shifts
-//onShift = true/false currently working, set in iife, localStorage string. figure out better way
-//track other things i.e. reading / language learning / exercising
-
 punchIn.addEventListener("click", () => {
-  //if lS 'onShift' is not defined or is false, it sets it to true, if it already is true, console.logs error message
-  //sets new date, converts it to local time zone and stores it to lS
   if (localStorage.getItem("onShift") === "true") {
     console.log("ERROR: Already on shift");
   } else {
@@ -38,8 +27,6 @@ punchIn.addEventListener("click", () => {
 });
 
 punchOut.addEventListener("click", () => {
-  //if lS 'onShift' is false or not defined, sets it to false, console.logs an error
-  //sets new date, converts it to local time zone and stores it to lS
   //calls endShift function
   if (localStorage.getItem("onShift") === "false" || !localStorage.getItem("onShift")) {
     console.log("ERROR: Not on shift");
@@ -66,7 +53,9 @@ function endShift() {
   data = JSON.parse(data);
 
   let timeIn = new Date(date1String);
+  let timeInFormatted = timeIn.toISOString().slice(11, 19);
   let timeOut = new Date(date2String);
+  let timeOutFormatted = timeOut.toISOString().slice(11, 19);
 
   const timeDifference = timeOut.getTime() - timeIn.getTime();
 
@@ -81,25 +70,16 @@ function endShift() {
   const minutesOutput = minutesDifference.toString().padStart(2, "0");
   const secondsOutput = secondsDifference.toString().padStart(2, "0");
 
-  output.innerText = `${hoursOutput}:${minutesOutput}:${secondsOutput}`;
-
   let obj = {
     date: today,
-    start: timeIn,
-    end: timeOut,
+    start: timeInFormatted,
+    end: timeOutFormatted,
     duration: `${hoursOutput}:${minutesOutput}:${secondsOutput}`,
   };
 
   data.push(obj);
   data = JSON.stringify(data);
   localStorage.setItem("shifts", data);
-  //append only this shift
-  //add row
-  //add tds
-  //fill tds
-  //append tds to row
-
-  //from database, repeat above for each shift and append to table
 }
 
 function tableFill() {
