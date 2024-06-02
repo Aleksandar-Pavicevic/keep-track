@@ -114,3 +114,4 @@ function tableFill() {
     tbody.appendChild(tableRow);
   }
 }
+console.log('this was added on the pc')
