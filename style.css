@@ -41,7 +41,7 @@ table {
     z-index: 0;
 }
 
-#scroll-to-top {
+#bot-buttons {
     position: fixed;
     bottom: 25px;
     right: 25px;
