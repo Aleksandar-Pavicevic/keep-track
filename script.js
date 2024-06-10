@@ -1,11 +1,15 @@
+//VARIABLES
 const punchIn = document.querySelector("#punch-in");
 const punchOut = document.querySelector("#punch-out");
 const reset = document.querySelector("#reset");
+const lSClear = document.querySelector("#lSClear");
 const output = document.querySelector("#output");
 const table = document.querySelector("#table");
 const thead = document.querySelector("#thead");
 const tbody = document.querySelector("#tbody");
-const timezoneOffset = 2 * 60 * 60 * 1000;
+const timezoneOffset = 2 * 60 * 60 * 1000; //two hours to manualy add time and match utc+2
+
+//IIFE
 (function () {
   // let data = localStorage.getItem("shifts");
   // data = JSON.parse(data);
@@ -15,6 +19,7 @@ const timezoneOffset = 2 * 60 * 60 * 1000;
   tableFill();
 })();
 
+//EVENT LISTENERS
 punchIn.addEventListener("click", () => {
   if (localStorage.getItem("onShift") === "true") {
     console.log("ERROR: Already on shift");
@@ -44,6 +49,11 @@ reset.addEventListener("click", () => {
   localStorage.setItem("onShift", "false");
 });
 
+lSClear.addEventListener("click", () => {
+  localStorage.clear();
+});
+
+//FUNCTIONS
 function endShift() {
   let date = new Date().toISOString();
   let today = date.split("T")[0];
@@ -76,8 +86,18 @@ function endShift() {
     end: timeOutFormatted,
     duration: `${hoursOutput}:${minutesOutput}:${secondsOutput}`,
   };
+  let tr = document.createElement("tr");
+  for (let key in obj) {
+    let td = document.createElement("td");
+    let textNode = document.createTextNode(obj[key]);
+    td.appendChild(textNode);
+    tr.appendChild(td);
+  }
+  let firstRow = tbody.getElementsByTagName("tr")[0];
+  tbody.insertBefore(tr, firstRow);
 
   data.push(obj);
+
   data = JSON.stringify(data);
   localStorage.setItem("shifts", data);
 }
@@ -114,4 +134,3 @@ function tableFill() {
     tbody.appendChild(tableRow);
   }
 }
-console.log('this was added on the pc')

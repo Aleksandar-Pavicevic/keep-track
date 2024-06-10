@@ -1,5 +1,4 @@
 JavaScript
-- Comment code
 - Sort stringify/parse and add database
 - On time start fill out table for time start
 - On time end fill out table for time end
@@ -18,4 +17,3 @@ HTML
 
 CSS
 - (HTML/CSS) work out a layout and add style
-- Structure CSS file properly and comment sections // Layout, Typography, Colours etc.

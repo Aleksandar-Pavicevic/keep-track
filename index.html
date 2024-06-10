@@ -4,32 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- ROBOTO font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <title>Shift Tracker App</title>
   </head>
   <body>
-    <div id="wrapper">
-      <div id="content">
-        <div id="buttons-container">
-          <button id="punch-in">punch in</button>
-          <button id="punch-out">punch out</button>
-          <button id="reset">clear current shift</button>
-        </div>
-        <div id="output-container">
-          <span id="output"></span>
-          <table id="table">
-            <thead id="thead"></thead>
-            <tbody id="tbody">
-              <tr>
-                <td>date</td>
-                <td>start</td>
-                <td>end</td>
-                <td>duration</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <div id="buttons-container">
+      <button id="punch-in">Punch in</button>
+      <button id="punch-out">Punch out</button>
+      <button id="reset">Clear current shift</button>
+      <button id="lSClear">Clear Local Storage</button>
     </div>
+    <div id="content">
+      <table id="table">
+        <thead id="thead">
+          <tr class="first-row" id="try">
+            <td>Date</td>
+            <td>Shift start</td>
+            <td>Shift end</td>
+            <td>Duration</td>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <button id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">Back to Top</button>
     <script src="script.js"></script>
   </body>
 </html>
