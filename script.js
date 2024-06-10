@@ -3,6 +3,7 @@ const punchIn = document.querySelector("#punch-in");
 const punchOut = document.querySelector("#punch-out");
 const reset = document.querySelector("#reset");
 const lSClear = document.querySelector("#lSClear");
+const current = document.querySelector("#current");
 const output = document.querySelector("#output");
 const table = document.querySelector("#table");
 const thead = document.querySelector("#thead");
@@ -16,6 +17,10 @@ const timezoneOffset = 2 * 60 * 60 * 1000; //two hours to manualy add time and m
   // for (let item in data) {
   //   console.log(data[item]);
   // }
+  if (localStorage.getItem("onShift") === "true") {
+    let date = new Date(localStorage.getItem("shift-start"));
+    current.innerText = `On shift since ${date.toISOString().slice(11, 19)}`;
+  }
   tableFill();
 })();
 
@@ -28,6 +33,7 @@ punchIn.addEventListener("click", () => {
     let date = new Date();
     date.setTime(date.getTime() + timezoneOffset);
     localStorage.setItem("shift-start", date.toISOString());
+    current.innerText = `On shift since ${date.toISOString().slice(11, 19)}`;
   }
 });
 
@@ -55,6 +61,7 @@ lSClear.addEventListener("click", () => {
 
 //FUNCTIONS
 function endShift() {
+  current.innerText = "";
   let date = new Date().toISOString();
   let today = date.split("T")[0];
   const date1String = localStorage.getItem("shift-start");
