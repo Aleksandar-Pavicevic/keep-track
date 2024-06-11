@@ -82,8 +82,10 @@ button {
     cursor: pointer;
 }
 
-button:hover{
-    background-color: hsla(222, 100%, 50%, 0.6);
+@media (hover: hover) {
+    button:hover {
+        background-color: hsla(222, 100%, 50%, 0.6);
+    }
 }
 
 button:active{
