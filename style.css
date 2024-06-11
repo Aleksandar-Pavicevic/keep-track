@@ -82,13 +82,16 @@ button {
     cursor: pointer;
 }
 
-@media (hover: hover) {
-    button:hover {
-        background-color: hsla(222, 100%, 50%, 0.6);
-    }
+button:hover{
+    background-color: hsla(222, 100%, 50%, 0.6);
 }
 
 button:active{
+    transform: scale(0.99);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+button:focus{
     transform: scale(0.99);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
