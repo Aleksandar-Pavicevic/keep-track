@@ -86,9 +86,6 @@ button:active{
 }
 
 @media (hover: none) and (pointer: coarse){
-    button:hover{
-        background-color: initial;
-    }
     button:active{
         transform: scale(0.99);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
