@@ -1,0 +1,25 @@
+FROM TO FROM ANIMATION ON CLICK
+@keyframes activate{
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50%{
+        transform: scale(0.95);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    100%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+ABOVE ANIMATION VALUES PLUS HOVER
+background-color: hsla(222, 100%, 50%, 0.6); HOVER
+transform: scale(0.99); ACTIVE
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; ACTIVE
+
+CLASS FOR ABOVE ANIMATION
+.active-anim{
+    animation: activate .01s linear alternate;
+}

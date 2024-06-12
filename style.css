@@ -60,12 +60,6 @@ thead{
     font-style: normal;
 }
 
-/*
-.roboto-bold {
-    
-} 
-*/
-
 /* ========== BUTTONS =========== */
 
 button {
@@ -82,13 +76,23 @@ button {
     cursor: pointer;
 }
 
-button:hover, button:active{
+button:hover{
     background-color: hsla(222, 100%, 50%, 0.6);
 }
 
 button:active{
     transform: scale(0.99);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@media (hover: none) and (pointer: coarse){
+    button:hover{
+        background-color: initial;
+    }
+    button:active{
+        transform: scale(0.99);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   }
 }
 
 button:first-of-type{

@@ -3,6 +3,7 @@ const punchIn = document.querySelector("#punch-in");
 const punchOut = document.querySelector("#punch-out");
 const reset = document.querySelector("#reset");
 const lSClear = document.querySelector("#lSClear");
+const buttons = document.querySelectorAll("button");
 const current = document.querySelector("#current");
 const output = document.querySelector("#output");
 const table = document.querySelector("#table");
@@ -58,6 +59,15 @@ reset.addEventListener("click", () => {
 lSClear.addEventListener("click", () => {
   localStorage.clear();
 });
+
+// buttons.forEach((x) => {
+//   x.addEventListener("click", () => {
+//     x.classList.add("active-anim");
+//     x.addEventListener("animationend", () => {
+//       x.classList.remove("active-anim");
+//     });
+//   });
+// }); For each button add class on click and remove after animation end
 
 //FUNCTIONS
 function endShift() {
