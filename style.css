@@ -87,10 +87,10 @@ button:active{
 
 @media (hover: none) and (pointer: coarse){
     button:hover{
-        background-color: #333;
+        background-color: hsla(222, 100%, 50%, 0.6);
     }
     button:active{
-        transform: scale(0.99);
+        transform: scale(0.98);
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
    }
 }
