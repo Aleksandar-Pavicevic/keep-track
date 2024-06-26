@@ -52,12 +52,27 @@ html{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 62.5%;
 }
 
 thead{
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
+}
+
+h1{
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+h2{
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+body{
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+button, input{
+    font-size: inherit;
 }
 
 /* ========== BUTTONS =========== */
@@ -67,11 +82,10 @@ button {
     border: none;
     border-radius: 10px;
     color: white;
-    padding: 12px 30px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
 }
